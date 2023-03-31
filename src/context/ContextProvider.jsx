@@ -25,13 +25,35 @@ export const ContextProvider = ({ children }) => {
     // setting up the sidebar according to the screen size
     const [screenSize, setScreenSize] = useState(undefined)
 
+
+    // for theming 
+    const [currentColor, setCurrentColor] = useState('#03C9D7')
+    const [currentMode, setCurrentMode] = useState('Light')
+    const [themeSettings, setThemeSettings] = useState(false);
+
+    //   diffenrce is due to variation in calling of function
+    const setMode = (e) => {
+        setCurrentMode(e.target.value);
+        localStorage.setItem('themeMode', e.target.value)
+        setThemeSettings(false)
+    }
+    const setColor = (color) => {
+        setCurrentColor(color);
+        localStorage.setItem('colorMode', color)
+        setThemeSettings(false)
+    }
+
+
     return <StateContext.Provider value={{
         activeMenu,
         setActiveMenu,
         isClicked, setIsClicked,
         handleClick,
         screenSize,
-        setScreenSize
+        setScreenSize,
+        currentColor, currentMode,
+        setMode, setColor,
+        themeSettings, setThemeSettings
     }}>
 
         {children}

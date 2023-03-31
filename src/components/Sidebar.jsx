@@ -19,7 +19,7 @@ const Sidebar = () => {
     */
 
     // dynamic value
-    const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+    const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
     // handling closing of sidebar when a link in the sidebar is clicked - this is done only when it is on the mobile devices and not on the desktop devices
     const handleCloseSideBar = () => {
@@ -64,6 +64,17 @@ const Sidebar = () => {
 
                                             {item.links.map((link) => (
                                                 <NavLink to={`/${link.name}`} key={`${link.name}`} onClick={handleCloseSideBar}
+
+                                                    // on destructuring we get the is Active property
+                                                    style={({ isActive }) =>
+                                                    ({
+                                                        backgroundColor: isActive ?
+                                                            currentColor : ''
+                                                    })}
+
+
+
+
                                                     className={({ isActive }) => (isActive ? activeLink : normalLink)} >
                                                     {link.icon}
                                                     <span className='capitalize'>{link.name}</span>
@@ -77,7 +88,7 @@ const Sidebar = () => {
                     )
                 }
             </div>
-        </div>
+        </div >
     )
 }
 

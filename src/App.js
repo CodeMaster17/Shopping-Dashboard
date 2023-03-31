@@ -16,8 +16,8 @@ const App = () => {
         const currentThemeColor = localStorage.getItem('colorMode');
         const currentThemeMode = localStorage.getItem('themeMode');
         if (currentThemeColor && currentThemeMode) {
-            setCurrentColor(currentThemeColor);
-            setCurrentMode(currentThemeMode);
+            // setCurrentColor(currentThemeColor);
+            // setCurrentMode(currentThemeMode);
         }
     }, []);
 
@@ -62,6 +62,7 @@ const App = () => {
                         </div>
                         <div>
                             {themeSettings && (<ThemeSettings />)}
+                            {/* <ThemeSettings /> */}
 
                             <Routes>
                                 {/* dashboard  */}

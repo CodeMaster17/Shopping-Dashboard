@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import { BsCurrencyDollar } from 'react-icons/bs'
+import React from 'react'
 import { GoPrimitiveDot } from 'react-icons/go'
-import { Stacked, Pie, Button } from '../components'
+import { Stacked, Button } from '../components'
 import Sparkline from '../components/Charts/Sparkline'
 import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy'
 import { useStateContext } from '../context/ContextProvider'
@@ -10,10 +9,10 @@ const Ecommerce = () => {
     const { currentColor } = useStateContext();
 
     return (
-        <div className='mt-12 check1'>
-            <div className="flex flex-wrap lg:flex-nowrap justify-center check2">
-                <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-100 p-8 pt-9 m-3  bg-no-repeat bg-cover bg-center bg-ecomm-custom check3">
-                    <div className="flex justify-between items-center">
+        <div className='mt-12'>
+            <div className="flex flex-wrap justify-center lg:flex-nowrap">
+                <div className="lg:w-100 bg-ecomm-custom m-3 h-44 w-full rounded-xl bg-white bg-cover bg-center bg-no-repeat p-8 pt-9 dark:bg-secondary-dark-bg dark:text-gray-200">
+                    <div className="flex items-center justify-between">
                         <div>
                             <p className='font-bold text-gray-400'>Earnings</p>
                             <p className='text-2xl'>$73,234,342</p>
@@ -30,17 +29,17 @@ const Ecommerce = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex m-3 flex-wrap justify-center gap-1 items-center check2">
+            <div className="m-3 flex flex-wrap items-center justify-center gap-1">
                 {earningData.map((item) => {
                     return (
 
                         <div
                             key={item.title}
-                            className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl check3"
+                            className="rounded-2xl bg-white p-4 pt-9 dark:bg-secondary-dark-bg dark:text-gray-200 md:w-56"
                         >
                             <button type="button"
                                 style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                                className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl"
+                                className="opacity-0.9 rounded-full p-4 text-2xl hover:drop-shadow-xl"
                             >
 
                                 {item.icon}
@@ -54,7 +53,7 @@ const Ecommerce = () => {
                                     {item.percentage}
                                 </span>
                             </p>
-                            <p className='text-sm text-gray-400 mt-1'>
+                            <p className='mt-1 text-sm text-gray-400'>
                                 {item.title}
                             </p>
                         </div>
@@ -64,10 +63,10 @@ const Ecommerce = () => {
 
 
             {/* revenue updates and the expense and budget graph */}
-            <div className="flex gap-10 flex-wrap justify-center">
-                <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
+            <div className="flex flex-wrap justify-center gap-10">
+                <div className="m-3 flex rounded-2xl bg-white p-4 dark:bg-secondary-dark-bg dark:text-gray-200 md:w-780">
                     <div className="flex justify-between">
-                        <p className="font-semibold text-xl">
+                        <p className="text-xl font-semibold">
                             Revenue Updates
                         </p>
                         <div className="flex items-center gap-4">
@@ -86,26 +85,26 @@ const Ecommerce = () => {
                         </div>
                     </div>
 
-                    <div className="mt-10 flex-gap-10 flex-wrap justify-center">
-                        <div className="border-r-1 border-color m-4 pr-10">
+                    <div className="flex-gap-10 mt-10 flex-wrap justify-center">
+                        <div className="m-4 border-r-1 pr-10">
                             <p>
                                 <span className='text-3xl font-semibold'>
                                     $93,438
                                 </span>
-                                <span className='p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400'>
+                                <span className='cursor-pointer rounded-full bg-green-400 p-1.5 text-white hover:drop-shadow-xl'>
                                     23%
                                 </span>
                             </p>
-                            <p className='text-gray-500 mt-1'>Budget</p>
+                            <p className='mt-1 text-gray-500'>Budget</p>
                         </div>
-                        <div className="border-r-1 border-color m-4 pr-10 mt-8">
+                        <div className="m-4 mt-8 border-r-1 pr-10">
                             <p>
                                 <span className='text-3xl font-semibold'>
                                     $93,438
                                 </span>
 
                             </p>
-                            <p className='text-gray-500 mt-1'>Expense</p>
+                            <p className='mt-1 text-gray-500'>Expense</p>
                         </div>
 
                         <div className="mt-5">
